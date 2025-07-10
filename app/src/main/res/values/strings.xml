@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Contador de Pasos Jhojan Perlaza</string>
+    <string name="view_history">Ver Historial</string>
+    <string name="history">Historial de pasos</string>
+</resources>

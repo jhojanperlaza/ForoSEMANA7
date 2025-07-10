@@ -1,0 +1,58 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+}
+
+android {
+    namespace "com.example.stepcounter"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.stepcounter"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // 🔹 Java y Kotlin en **1.8** (lo simple primero)
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions { jvmTarget = "1.8" }
+
+    buildFeatures { viewBinding true }
+}
+
+dependencies {
+    // ➜ 1) BOM que alinea TODO a 1.9.23
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:2.1.10"))
+
+    // --- AndroidX básicos ---
+    implementation "androidx.core:core-ktx:1.13.0"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.12.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+
+    // --- Lifecycle ---
+    def lifecycle_ver = "2.7.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_ver"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_ver"
+
+    // --- Coroutines ---
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+
+    // --- Room ---
+    implementation "androidx.room:room-runtime:2.7.1"
+    kapt         "androidx.room:room-compiler:2.7.1"
+    implementation "androidx.room:room-ktx:2.7.1"
+
+    // --- Gráficas ---
+    implementation "com.github.PhilJay:MPAndroidChart:3.1.0"
+    implementation "androidx.activity:activity-ktx:1.8.2"
+}
+
